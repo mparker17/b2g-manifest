@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  - Device configuration file for the OnePlus One.
+  -
+  - Released 2014-06-06, and also known as the "bacon" or the "opo", the OnePlus
+  - One is the first device from the Chinese startup OnePlus. It ships with
+  - Cyanogenmod preinstalled, and is one of the phones officially supported by
+  - Cyanogenmod.
+  -
+  - Known hardware variants:
+  - * 16GB SSD model
+  - * 64GB SSD model
+  -
+  - Quick specifications:
+  -   CPU: Qualcomm Snapdragon 801 (quad-core, 2.5GHz)
+  -   GPU: Adreno 330 (578MHz)
+  -   RAM: 3GB LP-DDR3, 1866MHz
+  -   SSD: 16 or 64 GB eMMC 5.0
+  -   Sensors: Accelerometer, Gyroscope, Proximity, Ambient Light
+  -   Battery: Embedded rechargeable 3100 mAh LiPo battery
+  -   Max. SAR: Head: 0.270 W/kg, Body: 0.540 W/kg
+  -   Cellular bands supported:
+  -     * GSM 850, 900, 1800, 1900 MHz
+  -     * WCDMA bands 1, 2, 4, 5, 8
+  -     * LTE bands 1, 3, 4, 7, 17, 38, 40
+  -   Wireless networking support: Dual-band Wi-Fi (2.4G/5G) 802.11 b/g/n/ac
+  -   Bluetooth support: 4.0
+  -   NFC support: 65T (software card emulation, payment methods and multi-tag 
+  -     support)
+  -   Positioning: 	Internal GPS antenna + GLONASS Digital Compass
+  -   Ports: Micro USB 2.0, 3.5mm TRRS audio jack.
+  -   Buttons: Power button, volume rockers, Capacitive / On-screen buttons.
+  -   SIM: 1x Micro SIM slot
+  -   Lights: 1 LED notification light (multicolored)
+  -   Speakers: 2x bottom-facing
+  -   Microphones: tri-microphone with noise cancellation
+  -   Cameras:
+  -     * Back:
+  -       * Sensor: 13 Megapixel - Sony Exmor IMX 214
+  -       * Lenses: 6
+  -       * Flash: Dual-LED
+  -       * Aperture: f/2.0
+  -     * Front:
+  -       * Sensor: 5 Megapixel
+  -   Display: 1920x1080px at 401 PPI.
+  -
+  - @see https://oneplus.net/one
+  - @see http://wiki.cyanogenmod.org/w/Bacon_Info
+  - @see https://github.com/CyanogenMod/android_device_oneplus_bacon
+  - @see https://github.com/CyanogenMod/android_kernel_oneplus_msm8974
+ -->
+<manifest>
+
+  <remote name="aosp"
+          fetch="https://android.googlesource.com/" />
+  <remote name="b2g"
+          fetch="git://github.com/mozilla-b2g/" />
+  <remote name="mozilla"
+	  fetch="git://github.com/mozilla/" />
+  <remote name="caf"
+          fetch="git://codeaurora.org/" />
+  <remote name="mozillaorg"
+          fetch="https://git.mozilla.org/releases" />
+  <remote name="apitrace" fetch="git://github.com/apitrace/" />
+  <remote name="CyanogenMod" fetch="git://github.com/CyanogenMod/" />
+  <default revision="b2g/ics_strawberry"
+           remote="caf"
+           sync-j="4" />
+
+  <!-- Gonk specific things and forks -->
+  <project path="build" name="platform_build" remote="b2g" revision="master">
+    <copyfile src="core/root.mk" dest="Makefile" />
+  </project>
+  <project path="dalvik" name="fake-dalvik" remote="b2g" revision="master" />
+  <project path="gaia" name="gaia.git" remote="mozillaorg" revision="master" />
+  <project path="gecko" name="gecko.git" remote="mozillaorg" revision="master" />
+  <project path="gonk-misc" name="gonk-misc" remote="b2g" revision="master" />
+  <project path="librecovery" name="librecovery" remote="b2g" revision="master" />
+  <project path="external/moztt" name="moztt" remote="b2g" revision="master" />
+  <project path="external/apitrace" name="apitrace" remote="apitrace" revision="refs/tags/6.1" />
+
+  <!-- Stock Android things -->
+  <project path="abi/cpp" name="platform/abi/cpp" />
+  <project path="bionic" name="platform_bionic" remote="b2g" revision="b2g_ics_strawberry"/>
+  <project path="bootable/recovery" name="platform/bootable/recovery" revision="b2g_ics_1.2" />
+  <project path="development" name="platform/development" revision="b2g_ics_1.2" />
+  <project path="device/common" name="device/common" />
+  <project path="device/sample" name="device/sample" />
+  <project path="external/apriori" name="platform_external_apriori" remote="b2g" revision="master" />
+  <project path="external/bluetooth/bluez" name="platform/external/bluetooth/bluez" />
+  <project path="external/bluetooth/glib" name="platform/external/bluetooth/glib" />
+  <project path="external/bluetooth/hcidump" name="platform/external/bluetooth/hcidump" />
+  <project path="external/bsdiff" name="platform/external/bsdiff" />
+  <project path="external/bzip2" name="platform/external/bzip2" />
+  <project path="external/dbus" name="platform/external/dbus" />
+  <project path="external/dhcpcd" name="platform/external/dhcpcd" />
+  <project path="external/dnsmasq" name="platform/external/dnsmasq" />
+  <project path="external/elfcopy" name="platform_external_elfcopy" remote="b2g" revision="master" />
+  <project path="external/elfutils" name="platform_external_elfutils" remote="b2g" revision="master" />
+  <project path="external/e2fsprogs" name="platform/external/e2fsprogs" />
+  <project path="external/expat" name="platform/external/expat" />
+  <project path="external/fdlibm" name="platform/external/fdlibm" />
+  <project path="external/flac" name="platform/external/flac" />
+  <project path="external/freetype" name="platform/external/freetype" />
+  <project path="external/giflib" name="platform/external/giflib" />
+  <project path="external/gtest" name="platform/external/gtest" revision="8c212ebe53bb2baab3575f03069016f1fb11e449" />
+  <project path="external/harfbuzz" name="platform/external/harfbuzz" />
+  <project path="external/icu4c" name="platform/external/icu4c" />
+  <project path="external/iptables" name="platform/external/iptables" />
+  <project path="external/jpeg" name="platform/external/jpeg" />
+  <project path="external/libgsm" name="platform/external/libgsm" />
+  <project path="external/liblzf" name="platform/external/liblzf" />
+  <project path="external/libnfc-nxp" name="platform/external/libnfc-nxp" />
+  <project path="external/libnl-headers" name="platform/external/libnl-headers" />
+  <project path="external/libpng" name="platform/external/libpng" />
+  <project path="external/libvpx" name="platform/external/libvpx" />
+  <project path="external/llvm" name="platform/external/llvm" />
+  <project path="external/mksh" name="platform/external/mksh" />
+  <project path="external/openssl" name="platform/external/openssl" />
+  <project path="external/protobuf" name="platform/external/protobuf" />
+  <project path="external/safe-iop" name="platform/external/safe-iop" />
+  <project path="external/screencap-gonk" name="screencap-gonk" remote="b2g" revision="master" />
+  <project path="external/skia" name="platform/external/skia" />
+  <project path="external/sonivox" name="platform/external/sonivox" />
+  <project path="external/speex" name="platform/external/speex" />
+  <project path="external/sqlite" name="platform/external/sqlite" revision="fb30e613139b8836fdc8e81e166cf3a76e5fa17f"/>
+  <project path="external/stlport" name="platform/external/stlport" />
+  <project path="external/strace" name="platform/external/strace" />
+  <project path="external/svox" name="platform/external/svox" revision="ics_strawberry" />
+  <project path="external/tagsoup" name="platform/external/tagsoup" />
+  <project path="external/tinyalsa" name="platform/external/tinyalsa" />
+  <project path="external/tremolo" name="platform/external/tremolo" />
+  <project path="external/unbootimg" name="unbootimg" remote="b2g" revision="master" />
+  <project path="external/webp" name="platform/external/webp" />
+  <project path="external/webrtc" name="platform/external/webrtc" />
+  <project path="external/wpa_supplicant" name="platform/external/wpa_supplicant" />
+  <project path="external/hostap" name="platform/external/hostap" />
+  <project path="external/zlib" name="platform/external/zlib" />
+  <project path="external/yaffs2" name="platform/external/yaffs2" />
+  <project path="frameworks/base" name="platform/frameworks/base" revision="b2g_ics_1.2" />
+  <project path="frameworks/opt/emoji" name="platform/frameworks/opt/emoji" />
+  <project path="frameworks/support" name="platform/frameworks/support" />
+  <project path="hardware/libhardware" name="platform/hardware/libhardware" revision="b2g_ics_1.2" />
+  <project path="hardware/libhardware_legacy" name="platform/hardware/libhardware_legacy" revision="b2g_ics_1.2" />
+  <project path="libcore" name="platform/libcore" />
+  <project path="ndk" name="platform/ndk" />
+  <project path="prebuilt" name="platform/prebuilt" />
+  <project path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" revision="aosp-new/master"/>
+  <project path="system/bluetooth" name="platform/system/bluetooth" />
+  <project path="system/core" name="platform/system/core" revision="b2g_ics_1.2" />
+  <project path="system/extras" name="platform/system/extras" />
+  <project path="system/media" name="platform/system/media" />
+  <project path="system/netd" name="platform/system/netd" revision="b2g_ics_1.2" />
+  <project path="system/vold" name="platform/system/vold" revision="b2g_ics_1.2" />
+
+  <!-- OnePlus-One-specific things -->
+  <project path="kernel" remote="CyanogenMod" name="android_kernel_oneplus_msm8974" revision="cm-12.0" />
+  <project path="device/oneplus/one" remote="CyanogenMod" name="android_device_oneplus_bacon" revision="cm-12.0" />
+</manifest>
